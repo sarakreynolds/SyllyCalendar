@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Profile - SyllyCalendar</title>
+  </head>
+  <body>
+    <h1>My Profile</h1>
+    <form action="changepassword.php" method="post">
+      <label for="current-password">Current Password:</label>
+      <input type="password" id="current-password" name="current-password" required>
+      <br>
+      <label for="new-password">New Password:</label>
+      <input type="password" id="new-password" name="new-password" required>
+      <br>
+      <label for="confirm-new-password">Confirm New Password:</label>
+      <input type="password" id="confirm-new-password" name="confirm-new-password" required>
+      <br>
+      <input type="submit" value="Change Password">
+    </form>
+    <br>
+    <form action="logout.php" method="post">
+      <input type="submit" value="Log Out">
+    </form>
+  </body>
+</html>
