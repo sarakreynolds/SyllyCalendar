@@ -27,9 +27,9 @@
 <body>
   <!-- buttons for view options -->
 <div id="view-options" style="text-align: center;">
-  <button id="daily-btn">Daily</button>
-  <button id="weekly-btn">Weekly</button>
-  <button id="monthly-btn">Monthly</button>
+  <button onclick="showDaily()">Daily</button>
+  <button onclick="showWeekly()">Weekly</button>
+  <button onclick="showMonthly()">Monthly</button>
 </div>
 
 
@@ -245,42 +245,24 @@
   </div>
 
   <script>
-   // get the HTML elements for the view options and calendar views
-    const viewOptions = document.getElementById('view-options');
-    const dailyView = document.getElementById('daily');
-    const weeklyView = document.getElementById('weekly');
-    const monthlyView = document.getElementById('monthly');
-
-    // add event listeners to the view option buttons
-    document.getElementById('daily-btn').addEventListener('click', showDailyView);
-    document.getElementById('weekly-btn').addEventListener('click', showWeeklyView);
-    document.getElementById('monthly-btn').addEventListener('click', showMonthlyView);
-
-    // function to show the daily calendar view
-    function showDailyView() {
-       dailyView.style.display = 'block';
-      weeklyView.style.display = 'none';
-      monthlyView.style.display = 'none';
+    function showDaily() {
+      document.getElementById("daily").style.display = "block";
+      document.getElementById("weekly").style.display = "none";
+      document.getElementById("monthly").style.display = "none";
     }
 
-    // function to show the weekly calendar view
-    function showWeeklyView() {
-      dailyView.style.display = 'none';
-      weeklyView.style.display = 'block';
-      monthlyView.style.display = 'none';
-      weeklyView.style.margin = 'auto';
+    function showWeekly() {
+      document.getElementById("daily").style.display = "none";
+      document.getElementById("weekly").style.display = "block";
+      document.getElementById("monthly").style.display = "none";
     }
 
-    // function to show the monthly calendar view
-    function showMonthlyView() {
-      dailyView.style.display = 'none';
-      weeklyView.style.display = 'none';
-      monthlyView.style.display = 'block';
+    function showMonthly() {
+      document.getElementById("daily").style.display = "none";
+      document.getElementById("weekly").style.display = "none";
+      document.getElementById("monthly").style.display = "block";
     }
-
-    // initialize the daily view as the default view
-    showDailyView();
-   </script>
+  </script>
 </body>
 </html>
 
