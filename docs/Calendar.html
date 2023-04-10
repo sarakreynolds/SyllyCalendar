@@ -23,33 +23,166 @@
       .hidden {
         display: none;
       }
-      #daily {
-        display: block;
-      }
     </style>
   </head>
   <body>
     <h1>Calendar</h1>
-    <div>
-      <button onclick="showView('daily')">Daily View</button>
-      <button onclick="showView('weekly')">Weekly View</button>
-      <button onclick="showView('monthly')">Monthly View</button>
+    <div id="toggle">
+      <button onclick="showDailyView()">Daily View</button>
+      <button onclick="showWeeklyView()">Weekly View</button>
+      <button onclick="showMonthlyView()">Monthly View</button>
     </div>
-    <table id="daily">
-      <tr>
-        <th>Time</th>
-        <th>Event</th>
-      </tr>
-      <tr>
-        <td>12am</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>1am</td>
-        <td></td>
-      </tr>
-      <!-- Add more rows for each hour -->
-    </table>
+    <div id="dailyView">
+      <table>
+        <tr>
+          <th>Time</th>
+          <th>Event</th>
+        </tr>
+        <tr>
+          <td>12:00 AM</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>1:00 AM</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2:00 AM</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>3:00 AM</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>4:00 AM</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>5:00 AM</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>6:00 AM</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>7:00 AM</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>8:00 AM</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>9:00 AM</td>
+          <td></td>
+        </tr>
+        <tr>
+            <td>10:00 AM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>11:00 AM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>12:00 PM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>1:00 PM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>2:00 PM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>3:00 PM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>4:00 PM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>5:00 PM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>6:00 PM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        <tr>
+            <td>7:00 PM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        <tr>
+            <td>8:00 PM</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  
+   <!-- Weekly View -->
+  </table>
     <table id="weekly" class="hidden">
       <tr>
         <th colspan="7">Week 1</th>
@@ -65,10 +198,14 @@
       </tr>
       <!-- Add more rows for each week -->
     </table>
-    <table id="monthly" class="hidden">
-      <tr>
-        <th colspan="7">April 2023</th>
-      </tr>
+  
+  <!-- Monthly View -->
+<div class="view" id="monthly-view">
+  <div class="view-header">
+    <h2>Monthly View</h2>
+  </div>
+  <div class="view-body">
+    <table>
       <tr>
         <th>Sun</th>
         <th>Mon</th>
@@ -78,38 +215,36 @@
         <th>Fri</th>
         <th>Sat</th>
       </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-      </tr>
-      <!-- Add more rows for each week -->
-    </table>
-    <script>
-      function showView(view) {
-        var dailyTable = document.getElementById("daily");
-        var weeklyTable = document.getElementById("weekly");
-        var monthlyTable = document.getElementById("monthly");
-
-        if (view === "daily") {
-          dailyTable.classList.remove("hidden");
-          weeklyTable.classList.add("hidden");
-          monthlyTable.classList.add("hidden");
-        } else if (view === "weekly") {
-          dailyTable.classList.add("hidden");
-          weeklyTable.classList.remove("hidden");
-          monthlyTable.classList.add("hidden");
-        } else if (view === "monthly") {
-          dailyTable.classList.add("hidden");
-          weeklyTable.classList.add("hidden");
-          monthlyTable.classList.remove("hidden");
+      <?php
+        // Get the current year and month
+        $year = date('Y');
+        $month = date('m');
+        
+        // Get the number of days in the current month
+        $num_days = cal_days_in_month(CAL_GREGORIAN, $month, $year);
+        
+        // Get the first day of the month
+        $first_day = date('w', mktime(0, 0, 0, $month, 1, $year));
+        
+        // Loop through each row
+        for ($i = 0; $i < ceil(($num_days + $first_day) / 7); $i++) {
+          echo "<tr>";
+          
+          // Loop through each day in the row
+          for ($j = 0; $j < 7; $j++) {
+            $day_num = $i * 7 + $j - $first_day + 1;
+            
+            // Check if the day is in the current month
+            if ($day_num > 0 && $day_num <= $num_days) {
+              echo "<td>$day_num</td>";
+            } else {
+              echo "<td></td>";
+            }
+          }
+          
+          echo "</tr>";
         }
-      }
-    </script>
-  </body>
-</html>
-
+      ?>
+    </table>
+  </div>
+</div>
