@@ -26,13 +26,15 @@
 </head>
 <body>
   <!-- buttons for view options -->
-  <button onclick="showDaily()">Daily</button>
-  <button onclick="showWeekly()">Weekly</button>
-  <button onclick="showMonthly()">Monthly</button>
+  <div id="view-options" style="text-align: center;">
+    <button onclick="showDaily()">Daily</button>
+    <button onclick="showWeekly()">Weekly</button>
+    <button onclick="showMonthly()">Monthly</button>
+   <div>
 
   <!-- daily view calendar -->
   <div id="daily" style="text-align: center; display:none">
-    <h2><Sunday April 1st, 2023</h2>
+    <h2>Sunday April 1st, 2023</h2>
   <table>
    <tr>
      <th>Time</th>
@@ -128,7 +130,7 @@
 
   <!-- weekly view calendar -->
   <div id="weekly" style="text-align: center; display:none">
-    <h2><The Week of April 1st, 2023</h2>
+    <h2>The Week of April 1st, 2023</h2>
     <table>
       <tr>
         <th>Day</th>
@@ -176,7 +178,7 @@
 
   <!-- monthly view calendar -->
   <div id="monthly" style="text-align: center; display:none">
-    <h2>< April 2023</h2>
+    <h2>April 2023</h2>
     <table>
       <tr>
         <th>Sun</th>
