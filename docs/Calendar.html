@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-  <center>
   <head>
     <meta charset="UTF-8">
     <title>Calendar</title>
@@ -21,11 +20,19 @@
       .today {
         background-color: #FFC;
       }
+      .hidden {
+        display: none;
+      }
     </style>
   </head>
   <body>
     <h1>Calendar</h1>
-    <table>
+    <div>
+      <button onclick="showDailyView()">Daily View</button>
+      <button onclick="showWeeklyView()">Weekly View</button>
+      <button onclick="showMonthlyView()">Monthly View</button>
+    </div>
+    <table id="calendar">
       <tr>
         <th colspan="7">April 2023</th>
       </tr>
@@ -38,52 +45,71 @@
         <th>Fri</th>
         <th>Sat</th>
       </tr>
-      <tr>
+      <tr class="dailyView hidden">
+        <td>12am</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="dailyView hidden">
+        <td>1am</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <!-- continue adding rows for all 24 hours -->
+      <tr class="weeklyView hidden">
+        <td></td>
         <td></td>
         <td></td>
         <td></td>
         <td></td>
         <td>1</td>
         <td>2</td>
-        <td>3</td>
       </tr>
-      <tr>
-        <td>4</td>
-        <td>5</td>
-        <td>6</td>
-        <td>7</td>
-        <td>8</td>
-        <td>9</td>
-        <td>10</td>
+      <!-- continue adding rows for all 7 days -->
+      <tr class="monthlyView">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>1</td>
+        <td>2</td>
       </tr>
-      <tr>
-        <td>11</td>
-        <td>12</td>
-        <td>13</td>
-        <td>14</td>
-        <td>15</td>
-        <td>16</td>
-        <td>17</td>
-      </tr>
-      <tr>
-        <td>18</td>
-        <td>19</td>
-        <td>20</td>
-        <td>21</td>
-        <td>22</td>
-        <td>23</td>
-        <td>24</td>
-      </tr>
-      <tr>
-        <td>25</td>
-        <td>26</td>
-        <td>27</td>
-        <td>28</td>
-        <td>29</td>
-        <td>30</td>
-        <td class="today">1</td>
-      </tr>
+      <!-- continue adding rows for all 4/5 weeks -->
     </table>
+    <script>
+      function showDailyView() {
+        document.querySelectorAll('.dailyView').forEach(function(row) {
+          row.classList.remove('hidden');
+        });
+        document.querySelectorAll('.weeklyView, .monthlyView').forEach(function(row) {
+          row.classList.add('hidden');
+        });
+      }
+      function showWeeklyView() {
+        document.querySelectorAll('.weeklyView').forEach(function(row) {
+          row.classList.remove('hidden');
+        });
+        document.querySelectorAll('.dailyView, .monthlyView').forEach(function(row) {
+          row.classList.add('hidden');
+        });
+      }
+      function showMonthlyView() {
+        document.querySelectorAll('.monthlyView').forEach(function(row) {
+          row.classList.remove('hidden');
+        });
+        document.querySelectorAll('.dailyView, .weeklyView').forEach(function(row) {
+          row.classList.add('hidden');
+        });
+      }
+    </script>
   </body>
-    <center>
 </html>
