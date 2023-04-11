@@ -56,8 +56,34 @@ body {
 
 <div class="split1 left">
   <div class="centered">
-    <h2>Left Text</h2>
-    <p>Some text.</p>
+    <!-- back-to-home button -->
+    <a href="index.html" id="Home">Home</a>
+  <!-- buttons for view options -->
+  <div id="view-options" style="text-align: center;">
+    <button onclick="showDaily()">Daily</button>
+    <button onclick="showWeekly()">Weekly</button>
+    <button onclick="showMonthly()">Monthly</button>
+   <div>
+     
+     <script>
+    function showDaily() {
+      document.getElementById("daily").style.display = "block";
+      document.getElementById("weekly").style.display = "none";
+      document.getElementById("monthly").style.display = "none";
+    }
+
+    function showWeekly() {
+      document.getElementById("daily").style.display = "none";
+      document.getElementById("weekly").style.display = "block";
+      document.getElementById("monthly").style.display = "none";
+    }
+
+    function showMonthly() {
+      document.getElementById("daily").style.display = "none";
+      document.getElementById("weekly").style.display = "none";
+      document.getElementById("monthly").style.display = "block";
+    }
+  </script>
   </div>
 </div>
 
@@ -93,14 +119,6 @@ body {
   </style>
 </head>
 <body>
-        <!-- back-to-home button -->
-    <a href="index.html" id="Home">Home</a>
-  <!-- buttons for view options -->
-  <div id="view-options" style="text-align: center;">
-    <button onclick="showDaily()">Daily</button>
-    <button onclick="showWeekly()">Weekly</button>
-    <button onclick="showMonthly()">Monthly</button>
-   <div>
 
   <!-- daily view calendar -->
   <div id="daily" style="text-align: center; display:none">
@@ -299,25 +317,6 @@ body {
     </table>
   </div>
 
-  <script>
-    function showDaily() {
-      document.getElementById("daily").style.display = "block";
-      document.getElementById("weekly").style.display = "none";
-      document.getElementById("monthly").style.display = "none";
-    }
-
-    function showWeekly() {
-      document.getElementById("daily").style.display = "none";
-      document.getElementById("weekly").style.display = "block";
-      document.getElementById("monthly").style.display = "none";
-    }
-
-    function showMonthly() {
-      document.getElementById("daily").style.display = "none";
-      document.getElementById("weekly").style.display = "none";
-      document.getElementById("monthly").style.display = "block";
-    }
-  </script>
 </body>
   </div>
 </div>
