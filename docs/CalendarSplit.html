@@ -64,26 +64,6 @@ body {
     <button onclick="showWeekly()">Weekly</button>
     <button onclick="showMonthly()">Monthly</button>
    <div>
-     
-     <script>
-    function showDaily() {
-      document.getElementById("daily").style.display = "block";
-      document.getElementById("weekly").style.display = "none";
-      document.getElementById("monthly").style.display = "none";
-    }
-
-    function showWeekly() {
-      document.getElementById("daily").style.display = "none";
-      document.getElementById("weekly").style.display = "block";
-      document.getElementById("monthly").style.display = "none";
-    }
-
-    function showMonthly() {
-      document.getElementById("daily").style.display = "none";
-      document.getElementById("weekly").style.display = "none";
-      document.getElementById("monthly").style.display = "block";
-    }
-  </script>
   </div>
 </div>
 
@@ -320,6 +300,24 @@ body {
 </body>
   </div>
 </div>
-     
+     <script>
+    function showDaily() {
+      document.getElementById("daily").style.display = "block";
+      document.getElementById("weekly").style.display = "none";
+      document.getElementById("monthly").style.display = "none";
+    }
+
+    function showWeekly() {
+      document.getElementById("daily").style.display = "none";
+      document.getElementById("weekly").style.display = "block";
+      document.getElementById("monthly").style.display = "none";
+    }
+
+    function showMonthly() {
+      document.getElementById("daily").style.display = "none";
+      document.getElementById("weekly").style.display = "none";
+      document.getElementById("monthly").style.display = "block";
+    }
+  </script>
 </body>
 </html> 
