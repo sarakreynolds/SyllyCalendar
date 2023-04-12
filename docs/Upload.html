@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
     <title>Upload PDF</title>
   </head>
   <body>
-    <h1>Please upload a PDF here</h1>
-    <form action="/upload" method="POST" enctype="multipart/form-data">
-      <input type="file" name="pdf" accept="application/pdf">
-      <br><br>
-      <input type="submit" value="Upload">
-    </form>
+    <div style="text-align: center;">
+      <img src="your-word-doc-image-path-here" alt="Word Doc">
+    </div>
+    <div style="text-align: center;">
+      <p>Enter some centered text here.</p>
+    </div>
+    <div style="text-align: center;">
+      <form action="/upload-pdf" method="post" enctype="multipart/form-data">
+        <label for="pdf-upload">Upload your PDF:</label>
+        <input type="file" id="pdf-upload" name="pdf-upload">
+        <button type="submit">Upload</button>
+      </form>
+    </div>
   </body>
 </html>
