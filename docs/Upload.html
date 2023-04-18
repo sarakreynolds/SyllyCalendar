@@ -5,10 +5,18 @@
 	<style>
 		/* Center the "Create a Class" button */
 		#create-class {
-			position: absolute;
-			bottom: 20px;
-			left: 50%;
-			transform: translateX(-50%);
+			display: block;
+			margin: 20px auto;
+			padding: 10px 20px;
+			background-color: #4CAF50;
+			color: white;
+			font-size: 16px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+		#create-class:hover {
+			background-color: #3e8e41;
 		}
 
 		/* Style for document container */
@@ -54,6 +62,6 @@
 			<div class="document-description">Document 3 Description</div>
 		</div>
 	</div>
-	<a id="create-class" href="UploadForm.html">Create a Class</a>
+	<button id="create-class" onclick="window.location.href='UploadForm.html'">Create a Class</button>
 </body>
 </html>
