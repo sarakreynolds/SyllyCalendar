@@ -44,6 +44,19 @@
 		.time-group label {
 			margin-right: 10px;
 		}
+
+		.day-group {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			margin: 10px;
+		}
+
+		.day-group label {
+			margin-right: 10px;
+		}
+
 	</style>
 </head>
 <body>
@@ -53,48 +66,23 @@
 
 		<div class="time-group">
 			<label for="start-time">Start Time:</label>
-			<input type="number" id="start-hour" name="start-hour" min="1" max="12" placeholder="HH" required>
-			<select id="start-min" name="start-min" required>
-			    <option value="00">00</option>
-				<option value="05">05</option>
-				<option value="10">10</option>
-				<option value="15">15</option>
-				<option value="20">20</option>
-				<option value="25">25</option>
-				<option value="30">30</option>
-				<option value="35">35</option>
-				<option value="40">40</option>
-				<option value="45">45</option>
-				<option value="50">50</option>
-				<option value="55">55</option>
-			</select>
-			<select id="start-ampm" name="start-ampm" required>
-				<option value="am">AM</option>
-				<option value="pm">PM</option>
-			</select>
+		    <input type="time" id="start-time" name="start-time">
 		</div>
 
 		<div class="time-group">
 			<label for="end-time">End Time:</label>
-			<input type="number" id="end-hour" name="end-hour" min="1" max="12" placeholder="HH" required>
-			<select id="end-min" name="end-min" required>
-				<option value="00">00</option>
-				<option value="05">05</option>
-				<option value="10">10</option>
-				<option value="15">15</option>
-				<option value="20">20</option>
-				<option value="25">25</option>
-				<option value="30">30</option>
-				<option value="35">35</option>
-				<option value="40">40</option>
-				<option value="45">45</option>
-				<option value="50">50</option>
-				<option value="55">55</option>
-			</select>
-			<select id="end-ampm" name="end-ampm" required>
-				<option value="am">AM</option>
-				<option value="pm">PM</option>
-			</select>
+		    <input type="time" id="end-time" name="end-time">
+		</div>
+
+		<div class="day-group">
+			<label>Days:</label>
+			<label for="sunday"><input type="checkbox" id="sunday" name="class-days[]" value="Sunday"> Sunday</label>
+			<label for="monday"><input type="checkbox" id="monday" name="class-days[]" value="Monday"> Monday</label>
+			<label for="tuesday"><input type="checkbox" id="tuesday" name="class-days[]" value="Tuesday"> Tuesday</label>
+			<label for="wednesday"><input type="checkbox" id="wednesday" name="class-days[]" value="Wednesday"> Wednesday</label>
+			<label for="thursday"><input type="checkbox" id="thursday" name="class-days[]" value="Thursday"> Thursday</label>
+			<label for="friday"><input type="checkbox" id="friday" name="class-days[]" value="Friday"> Friday</label>
+			<label for="saturday"><input type="checkbox" id="saturday" name="class-days[]" value="Saturday"> Saturday</label>
 		</div>
 
 		<label for="syllabus-file">Syllabus PDF:</label>
