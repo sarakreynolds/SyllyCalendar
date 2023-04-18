@@ -1,21 +1,59 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Upload PDF</title>
-  </head>
-  <body>
-    <div style="text-align: center;">
-      <img src="your-word-doc-image-path-here" alt="Word Doc">
-    </div>
-    <div style="text-align: center;">
-      <p>Enter some centered text here.</p>
-    </div>
-    <div style="text-align: center;">
-      <form action="/upload-pdf" method="post" enctype="multipart/form-data">
-        <label for="pdf-upload">Upload your PDF:</label>
-        <input type="file" id="pdf-upload" name="pdf-upload">
-        <button type="submit">Upload</button>
-      </form>
-    </div>
-  </body>
+<head>
+	<title>Document Gallery</title>
+	<style>
+		/* Center the "Create a Class" button */
+		#create-class {
+			position: absolute;
+			bottom: 20px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		/* Style for document container */
+		.document-container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			margin: 20px;
+		}
+
+		/* Style for document box */
+		.document-box {
+			width: calc(33.33% - 10px);
+			margin-bottom: 20px;
+		}
+
+		/* Style for document image */
+		.document-image {
+			width: 100%;
+			height: auto;
+		}
+
+		/* Style for document description */
+		.document-description {
+			margin-top: 10px;
+			font-size: 14px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="document-container">
+		<div class="document-box">
+			<img class="document-image" src="document1.jpg" alt="Document 1">
+			<div class="document-description">Document 1 Description</div>
+		</div>
+		<div class="document-box">
+			<img class="document-image" src="document2.jpg" alt="Document 2">
+			<div class="document-description">Document 2 Description</div>
+		</div>
+		<div class="document-box">
+			<img class="document-image" src="document3.jpg" alt="Document 3">
+			<div class="document-description">Document 3 Description</div>
+		</div>
+	</div>
+	<a id="create-class" href="UploadForm.html">Create a Class</a>
+</body>
 </html>
