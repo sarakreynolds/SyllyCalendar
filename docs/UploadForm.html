@@ -32,6 +32,18 @@
 		input[type=submit]:hover {
 			background-color: #3e8e41;
 		}
+
+		.time-group {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			margin: 10px;
+		}
+
+		.time-group label {
+			margin-right: 10px;
+		}
 	</style>
 </head>
 <body>
@@ -39,8 +51,51 @@
 		<label for="class-title">Class Title:</label>
 		<input type="text" id="class-title" name="class-title">
 
-		<label for="class-time">Class Time:</label>
-		<input type="text" id="class-time" name="class-time">
+		<div class="time-group">
+			<label for="start-time">Start Time:</label>
+			<input type="number" id="start-hour" name="start-hour" min="1" max="12" placeholder="HH" required>
+			<select id="start-min" name="start-min" required>
+			    <option value="00">00</option>
+				<option value="05">05</option>
+				<option value="10">10</option>
+				<option value="15">15</option>
+				<option value="20">20</option>
+				<option value="25">25</option>
+				<option value="30">30</option>
+				<option value="35">35</option>
+				<option value="40">40</option>
+				<option value="45">45</option>
+				<option value="50">50</option>
+				<option value="55">55</option>
+			</select>
+			<select id="start-ampm" name="start-ampm" required>
+				<option value="am">AM</option>
+				<option value="pm">PM</option>
+			</select>
+		</div>
+
+		<div class="time-group">
+			<label for="end-time">End Time:</label>
+			<input type="number" id="end-hour" name="end-hour" min="1" max="12" placeholder="HH" required>
+			<select id="end-min" name="end-min" required>
+				<option value="00">00</option>
+				<option value="05">05</option>
+				<option value="10">10</option>
+				<option value="15">15</option>
+				<option value="20">20</option>
+				<option value="25">25</option>
+				<option value="30">30</option>
+				<option value="35">35</option>
+				<option value="40">40</option>
+				<option value="45">45</option>
+				<option value="50">50</option>
+				<option value="55">55</option>
+			</select>
+			<select id="end-ampm" name="end-ampm" required>
+				<option value="am">AM</option>
+				<option value="pm">PM</option>
+			</select>
+		</div>
 
 		<label for="syllabus-file">Syllabus PDF:</label>
 		<input type="file" id="syllabus-file" name="syllabus-file" accept="application/pdf">
