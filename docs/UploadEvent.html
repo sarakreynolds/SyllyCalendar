@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Upload Event</title>
+	<style>
+		form {
+			margin: 50px auto;
+			max-width: 500px;
+			text-align: center;
+		}
+
+		input[type=text], input[type=date], input[type=time], textarea {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border: 2px solid #ccc;
+			border-radius: 4px;
+		}
+
+		textarea {
+			height: 100px;
+		}
+
+		input[type=submit] {
+			background-color: #4CAF50;
+			color: white;
+			padding: 14px 20px;
+			margin: 20px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 16px;
+		}
+
+		input[type=submit]:hover {
+			background-color: #3e8e41;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<label for="event-title">Event Title:</label>
+		<input type="text" id="event-title" name="event-title">
+
+		<label for="start-date">Start Date:</label>
+		<input type="date" id="start-date" name="start-date">
+
+		<label for="start-time">Start Time:</label>
+		<input type="time" id="start-time" name="start-time">
+
+		<label for="end-date">End Date:</label>
+		<input type="date" id="end-date" name="end-date">
+
+		<label for="end-time">End Time:</label>
+		<input type="time" id="end-time" name="end-time">
+
+		<label for="description">Notes/Description:</label>
+		<textarea id="description" name="description"></textarea>
+
+		<input type="submit" value="Create">
+	</form>
+</body>
+</html>
