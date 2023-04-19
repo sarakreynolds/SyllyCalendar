@@ -1512,6 +1512,17 @@ function showDaily() {
   // explicitly hide the monthly view
   document.getElementById("monthly").style.display = "none";
   month.style.display = 'none';
+	
+  // get current date
+  const today = new Date();
+  
+  // format date string
+  const options = { weekday: 'long', month: 'long', day: 'numeric' };
+  const dateString = today.toLocaleDateString('en-US', options);
+  
+  // set date header
+  const currentDateHeader = document.getElementById('currentDate');
+  currentDateHeader.textContent = dateString;
 }
 
 function showWeekly() {
@@ -1523,6 +1534,23 @@ function showWeekly() {
   // explicitly hide the monthly view
   document.getElementById("monthly").style.display = "none";
   month.style.display = 'none';
+	
+// get current date
+  const today = new Date();
+
+  // calculate Sunday of the current week
+  const sunday = new Date(today.getFullYear(), today.getMonth(), today.getDate() - today.getDay());
+
+  // format date string for the current week
+  const options = { month: 'long', day: 'numeric' };
+  const sundayString = sunday.toLocaleDateString('en-US', options);
+  const saturday = new Date(today.getFullYear(), today.getMonth(), today.getDate() + (6 - today.getDay()));
+  const saturdayString = saturday.toLocaleDateString('en-US', options);
+  const currentWeekString = sundayString + ' - ' + saturdayString;
+
+  // set current week header
+  const currentWeekHeader = document.getElementById('currentWeek');
+  currentWeekHeader.textContent = currentWeekString;
 }
 
 function showMonthly() {
@@ -1558,35 +1586,7 @@ function showMonthly() {
 </script>
 	  
 <script>
-  // get current date
-  const today = new Date();
-  
-  // format date string
-  const options = { weekday: 'long', month: 'long', day: 'numeric' };
-  const dateString = today.toLocaleDateString('en-US', options);
-  
-  // set date header
-  const currentDateHeader = document.getElementById('currentDate');
-  currentDateHeader.textContent = dateString;
-
-  // get current date
-  const today = new Date();
-
-  // calculate Sunday of the current week
-  const sunday = new Date(today.getFullYear(), today.getMonth(), today.getDate() - today.getDay());
-
-  // format date string for the current week
-  const options = { month: 'long', day: 'numeric' };
-  const sundayString = sunday.toLocaleDateString('en-US', options);
-  const saturday = new Date(today.getFullYear(), today.getMonth(), today.getDate() + (6 - today.getDay()));
-  const saturdayString = saturday.toLocaleDateString('en-US', options);
-  const currentWeekString = sundayString + ' - ' + saturdayString;
-
-  // set current week header
-  const currentWeekHeader = document.getElementById('currentWeek');
-  currentWeekHeader.textContent = currentWeekString;
-
-const todoList = document.getElementById('todo-list');
+  const todoList = document.getElementById('todo-list');
 const newItemInput = document.getElementById('new-item');
 const addButton = document.getElementById('add-button');
 
