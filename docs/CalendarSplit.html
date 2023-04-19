@@ -1564,17 +1564,22 @@ button {
   currentDateHeader.textContent = dateString;
 </script>
 	  
-	  <script>
-  // Get the current date
-  const today = new Date();
-  // Get the Sunday of the current week
-  const sunday = new Date(today.getFullYear(), today.getMonth(), today.getDate() - today.getDay());
-  // Format the Sunday date as "Month Day, Year" (e.g. "April 17, 2022")
-  const sundayFormatted = sunday.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
-  // Set the week title as "The Week of Month Day, Year"
-  document.getElementById("currentWeek").innerHTML = "The Week of " + sundayFormatted;
-currentWeekHeader.textContent = sundayFormatted;
+<script>
+// Get current date
+var today = new Date();
+
+// Calculate Sunday of current week
+var sunday = new Date(today.getFullYear(), today.getMonth(), today.getDate() - today.getDay());
+
+// Format Sunday date as string in mm/dd/yyyy format
+var sundayStr = (sunday.getMonth() + 1) + '/' + sunday.getDate() + '/' + sunday.getFullYear();
+// set week header
+  const currentWeekHeader = document.getElementById('currentWeek');
+  currentDateHeader.textContent = "The Week of " + sundayStr;
 </script>
+
+// Display Sunday date in table
+document.getElementById("sunday-date").innerHTML = sundayStr;
 	  
   <script>
 	const todoList = document.getElementById('todo-list');
