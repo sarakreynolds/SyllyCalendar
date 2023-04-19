@@ -1504,9 +1504,9 @@ button {
   }
 
 function showDaily() {
-  document.getElementById("daily").style.display = "block";
   document.getElementById("weekly").style.display = "none";
   document.getElementById("monthly").style.display = "none";
+  document.getElementById("daily").style.display = "block";
   prevBtn.style.display = 'none';
   nextBtn.style.display = 'none';
   // explicitly hide the monthly view
@@ -1516,8 +1516,8 @@ function showDaily() {
 
 function showWeekly() {
   document.getElementById("daily").style.display = "none";
-  document.getElementById("weekly").style.display = "block";
   document.getElementById("monthly").style.display = "none";
+  document.getElementById("weekly").style.display = "block";
   prevBtn.style.display = 'none';
   nextBtn.style.display = 'none';
   // explicitly hide the monthly view
