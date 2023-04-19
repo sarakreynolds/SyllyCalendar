@@ -1466,7 +1466,7 @@ button {
 		</tbody>
 	</table>
 </center>
-	
+//month script
 <script>
   let currentMonth = 0;
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -1490,7 +1490,11 @@ button {
     caption.textContent = date.toLocaleString('default', { month: 'long', year: 'numeric' });
   }
 
-  updateCalendar();
+  // hide all months except the first one on page load
+  for (let i = 1; i < months.length; i++) {
+    const month = document.getElementById(months[i]);
+    month.style.display = 'none';
+  }
 
   prevBtn.addEventListener('click', () => {
     currentMonth--;
@@ -1508,6 +1512,8 @@ button {
     updateCalendar();
   });
 </script>
+
+
 </body>
   </div>
 
