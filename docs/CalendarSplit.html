@@ -1565,17 +1565,23 @@ button {
 </script>
 	  
 <script>
-// Get current date
-var today = new Date();
+// get current date
+const today = new Date();
 
-// Calculate Sunday of current week
-var sunday = new Date(today.getFullYear(), today.getMonth(), today.getDate() - today.getDay());
+// get the current day of the week (0 = Sunday, 1 = Monday, etc.)
+const currentDayOfWeek = today.getDay();
 
-// Format Sunday date as string in mm/dd/yyyy format
-var sundayStr = (sunday.getMonth() + 1) + '/' + sunday.getDate() + '/' + sunday.getFullYear();
-// set week header
-  const currentWeekHeader = document.getElementById('currentWeek');
-  currentDateHeader.textContent = "The Week of " + sundayStr;
+// calculate the date of the Sunday of the current week
+const sundayDate = new Date(today);
+sundayDate.setDate(today.getDate() - currentDayOfWeek);
+
+// format date string
+const options = { weekday: 'long', month: 'long', day: 'numeric' };
+const dateString = sundayDate.toLocaleDateString('en-US', options);
+
+// set date header
+const currentWeekHeader = document.getElementById('currentWeek');
+currentWeekHeader.textContent = 'The Week of ' + dateString;
 </script>
 
 // Display Sunday date in table
