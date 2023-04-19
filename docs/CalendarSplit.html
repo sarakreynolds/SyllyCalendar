@@ -1466,7 +1466,7 @@ button {
 		</tbody>
 	</table>
 </center>
-//month script
+
 <script>
   let currentMonth = 0;
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -1478,7 +1478,7 @@ button {
     // hide all months except the current one
     for (let i = 0; i < months.length; i++) {
       const month = document.getElementById(months[i]);
-      if (i === currentMonth) {
+      if (currentMonth >= 0 && i === currentMonth) {
         month.style.display = 'table';
       } else {
         month.style.display = 'none';
