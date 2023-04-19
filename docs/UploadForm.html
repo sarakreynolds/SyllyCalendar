@@ -129,17 +129,18 @@
     popup.style.display = 'block';
     document.body.appendChild(popup);
 
-    // Wait 1.5 seconds and redirect to CalendarSplit.html
-    setTimeout(() => {
-      window.location.href = 'CalendarSplit.html';
-    }, 1500);
-  });
-
   // Handle popup close
   const popup = document.getElementById('popup');
   popup.addEventListener('click', () => {
     popup.style.display = 'none';
   });
+	  
+	  // Wait 1.5 seconds and redirect to CalendarSplit.html
+    setTimeout(() => {
+      window.location.href = 'CalendarSplit.html';
+    }, 1500);
+  });
 </script>
+
 </body>
 </html>
