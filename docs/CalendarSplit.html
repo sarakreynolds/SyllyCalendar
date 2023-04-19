@@ -91,9 +91,26 @@ body {
 	.class-info {
   		display: none;
 	}
+	.containerLogo {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			border: 2px solid black;
+		}
+		
+		img {
+			max-width: 10%;
+			max-height: 10%;
+			object-fit: contain;
+			border: none;
+		}
 </style>
 </head>
 <body>
+	<div class="containerLogo">
+		<img src="SyllyLogo.pnp">
+	</div>
 	<div class="center">
 		<a href="Upload.html"><button>Add New Class</button></a>
 	</div>
