@@ -34,7 +34,7 @@ body {
 
 .left {
   left: 0;
-  background-color: lightblue;
+  background-color: lightgreen;
 }
 
 .right {
@@ -1486,14 +1486,14 @@ button {
   }
 
   function showDaily() {
-    document.getElementById("daily").style.display = "table";
+    document.getElementById("daily").style.display = "block";
     document.getElementById("weekly").style.display = "none";
     document.getElementById("monthly").style.display = "none";
   }
 
   function showWeekly() {
     document.getElementById("daily").style.display = "none";
-    document.getElementById("weekly").style.display = "table";
+    document.getElementById("weekly").style.display = "block";
     document.getElementById("monthly").style.display = "none";
   }
 
@@ -1504,7 +1504,7 @@ button {
 
     document.getElementById("daily").style.display = "none";
     document.getElementById("weekly").style.display = "none";
-    document.getElementById("monthly").style.display = "table";
+    document.getElementById("monthly").style.display = "block";
   }
 
   // hide all months
