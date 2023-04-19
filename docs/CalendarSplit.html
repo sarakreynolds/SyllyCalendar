@@ -1591,42 +1591,38 @@ currentWeekHeader.textContent = 'The Week of ' + dateString;
 	  
   <script>
 	const todoList = document.getElementById('todo-list');
-	const newItemInput = document.getElementById('new-item');
-	const addButton = document.getElementById('add-button');
+const newItemInput = document.getElementById('new-item');
+const addButton = document.getElementById('add-button');
 
-	// Add click listener to the add button
-	addButton.addEventListener('click', function() {
-		// Create a new todo item
-		const newItem = document.createElement('li');
-		const newItemText = document.createTextNode(newItemInput.value);
-		newItem.appendChild(newItemText);
-		const newCheckbox = document.createElement('input');
-		newCheckbox.type = 'checkbox';
-		newCheckbox.name = 'todo-item';
-		newCheckbox.value = newItemInput.value;
-		newItem.insertBefore(newCheckbox, newItem.firstChild);
-		todoList.appendChild(newItem);
-		newItemInput.value = '';
-	});
+// Add click listener to the add button
+addButton.addEventListener('click', function() {
+  // Create a new todo item
+  const newItem = document.createElement('li');
+  const newItemText = document.createTextNode(newItemInput.value);
+  newItem.appendChild(newItemText);
+  const newCheckbox = document.createElement('input');
+  newCheckbox.type = 'checkbox';
+  newCheckbox.name = 'todo-item';
+  newCheckbox.value = newItemInput.value;
+  newItem.insertBefore(newCheckbox, newItem.firstChild);
+  todoList.appendChild(newItem);
+  newItemInput.value = '';
 
-	// Add click listeners to the existing checkboxes
-	const checkboxes = document.getElementsByName('todo-item');
-	for (let i = 0; i < checkboxes.length; i++) {
-		const checkbox = checkboxes[i];
-		checkbox.addEventListener('click', function() {
-			if (this.checked) {
-				// Display a confirmation dialog box
-				const confirmation = confirm(`Confirm completion of ${this.value}`);
-				if (confirmation) {
-					// Remove the corresponding todo item from the list
-					this.parentNode.remove();
-				} else {
-					// Uncheck the checkbox
-					this.checked = false;
-				}
-			}
-		});
-	}
+  // Add click listener to the new checkbox
+  newCheckbox.addEventListener('click', function() {
+    if (this.checked) {
+      // Display a confirmation dialog box
+      const confirmation = confirm(`Confirm completion of ${this.value}`);
+      if (confirmation) {
+        // Remove the corresponding todo item from the list
+        this.parentNode.remove();
+      } else {
+        // Uncheck the checkbox
+        this.checked = false;
+      }
+    }
+  });
+});
 	  
 	  //script for classes selection
 function toggleClass(className) {
