@@ -1594,21 +1594,21 @@ const todoList = document.getElementById('todo-list');
 const newItemInput = document.getElementById('new-item');
 const addButton = document.getElementById('add-button');
 
-// Function to add an event listener to a checkbox
-function addCheckboxListener(checkbox) {
-  checkbox.addEventListener('click', function() {
-    if (this.checked) {
+// Function to create an event listener for a checkbox
+function createCheckboxListener(checkbox) {
+  return function() {
+    if (checkbox.checked) {
       // Display a confirmation dialog box
-      const confirmation = confirm(`Confirm completion of ${this.value}`);
+      const confirmation = confirm(`Confirm completion of ${checkbox.value}`);
       if (confirmation) {
         // Remove the corresponding todo item from the list
-        this.parentNode.remove();
+        checkbox.parentNode.remove();
       } else {
         // Uncheck the checkbox
-        this.checked = false;
+        checkbox.checked = false;
       }
     }
-  });
+  };
 }
 
 // Function to add event listeners to all checkboxes in the todo list
@@ -1616,10 +1616,8 @@ function addCheckboxListeners() {
   const checkboxes = document.getElementsByName('todo-item');
   for (let i = 0; i < checkboxes.length; i++) {
     const checkbox = checkboxes[i];
-    // Remove any existing event listeners before adding a new one
-    checkbox.removeEventListener('click', checkbox.clickHandler);
-    // Add a new event listener
-    checkbox.clickHandler = addCheckboxListener(checkbox);
+    checkbox.addEventListener('click', checkbox.clickHandler);
+    checkbox.clickHandler = createCheckboxListener(checkbox);
   }
 }
 
@@ -1638,7 +1636,8 @@ addButton.addEventListener('click', function() {
   newItemInput.value = '';
 
   // Add event listener to the new checkbox
-  addCheckboxListener(newCheckbox);
+  newCheckbox.addEventListener('click', newCheckbox.clickHandler);
+  newCheckbox.clickHandler = createCheckboxListener(newCheckbox);
 
   // Add event listeners to all checkboxes in the todo list
   addCheckboxListeners();
