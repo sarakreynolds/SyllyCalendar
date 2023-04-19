@@ -107,15 +107,17 @@ body {
 		</ul>
 	</div>
 	<div class="todo">
-		<h2>To-Do List</h2>
-		<ul>
-			<li>Comp 251 - Test 2</li>
-			<li>Comp 375 - Project 3</li>
-			<li>Comp 486 - Project 6</li>
-			<li>Math 250 - HW 7</li>
-			<li>English 102 - Essay 2</li>
-		</ul>
-	</div>
+	<h2>To-Do List</h2>
+	<ul id="todo-list">
+		<li><input type="checkbox" name="todo-item" value="Comp 251 - Test 2"> Comp 251 - Test 2</li>
+		<li><input type="checkbox" name="todo-item" value="Comp 375 - Project 3"> Comp 375 - Project 3</li>
+		<li><input type="checkbox" name="todo-item" value="Comp 486 - Project 6"> Comp 486 - Project 6</li>
+		<li><input type="checkbox" name="todo-item" value="Math 250 - HW 7"> Math 250 - HW 7</li>
+		<li><input type="checkbox" name="todo-item" value="English 102 - Essay 2"> English 102 - Essay 2</li>
+	</ul>
+	<input type="text" id="new-item" placeholder="Add new item">
+	<button id="add-button">Add</button>
+</div>
 </body>
   </div>
 </div>
@@ -1508,5 +1510,45 @@ button {
       document.getElementById("monthly").style.display = "block";
     }
   </script>
+  
+  <script>
+	const todoList = document.getElementById('todo-list');
+	const newItemInput = document.getElementById('new-item');
+	const addButton = document.getElementById('add-button');
+
+	// Add click listener to the add button
+	addButton.addEventListener('click', function() {
+		// Create a new todo item
+		const newItem = document.createElement('li');
+		const newItemText = document.createTextNode(newItemInput.value);
+		newItem.appendChild(newItemText);
+		const newCheckbox = document.createElement('input');
+		newCheckbox.type = 'checkbox';
+		newCheckbox.name = 'todo-item';
+		newCheckbox.value = newItemInput.value;
+		newItem.insertBefore(newCheckbox, newItem.firstChild);
+		todoList.appendChild(newItem);
+		newItemInput.value = '';
+	});
+
+	// Add click listeners to the existing checkboxes
+	const checkboxes = document.getElementsByName('todo-item');
+	for (let i = 0; i < checkboxes.length; i++) {
+		const checkbox = checkboxes[i];
+		checkbox.addEventListener('click', function() {
+			if (this.checked) {
+				// Display a confirmation dialog box
+				const confirmation = confirm(`Confirm completion of ${this.value}`);
+				if (confirmation) {
+					// Remove the corresponding todo item from the list
+					this.parentNode.remove();
+				} else {
+					// Uncheck the checkbox
+					this.checked = false;
+				}
+			}
+		});
+	}
+</script>
 </body>
 </html>
