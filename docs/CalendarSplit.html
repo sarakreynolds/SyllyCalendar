@@ -1448,88 +1448,55 @@ button {
 		</tbody>
 	</table>
 </center>
-
+	   </body>
+	  </div>
 <script>
   let currentMonth = 0;
-const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-const prevBtn = document.getElementById('prev-btn');
-const nextBtn = document.getElementById('next-btn');
-const caption = document.querySelector('caption');
-const monthBtn = document.getElementById('month-btn');
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const caption = document.querySelector('caption');
 
-function updateCalendar() {
-  // hide all months except the current one
-  for (let i = 0; i < months.length; i++) {
-    const month = document.getElementById(months[i]);
-    if (currentMonth >= 0 && i === currentMonth) {
-      month.style.display = 'table';
-    } else {
-      month.style.display = 'none';
+  function updateCalendar() {
+    // hide all months except the current one
+    for (let i = 0; i < months.length; i++) {
+      const month = document.getElementById(months[i]);
+      if (currentMonth >= 0 && i === currentMonth) {
+        month.style.display = 'table';
+      } else {
+        month.style.display = 'none';
+      }
     }
-  }
 
-  // update the caption to show the current month and year if month button is clicked
-  if (monthBtn.checked) {
+    // update the caption to show the current month and year
     const date = new Date();
     date.setMonth(currentMonth);
     caption.textContent = date.toLocaleString('default', { month: 'long', year: 'numeric' });
-  } else {
-    caption.textContent = 'Calendar';
   }
-}
 
-// hide all months except the first one on page load
-for (let i = 1; i < months.length; i++) {
-  const month = document.getElementById(months[i]);
-  month.style.display = 'none';
-}
-
-prevBtn.addEventListener('click', () => {
-  currentMonth--;
-  if (currentMonth < 0) {
-    currentMonth = months.length - 1;
+  // hide all months except the first one on page load
+  for (let i = 1; i < months.length; i++) {
+    const month = document.getElementById(months[i]);
+    month.style.display = 'none';
   }
-  updateCalendar();
-});
 
-nextBtn.addEventListener('click', () => {
-  currentMonth++;
-  if (currentMonth >= months.length) {
-    currentMonth = 0;
-  }
-  updateCalendar();
-});
+  prevBtn.addEventListener('click', () => {
+    currentMonth--;
+    if (currentMonth < 0) {
+      currentMonth = months.length - 1;
+    }
+    updateCalendar();
+  });
 
-monthBtn.addEventListener('click', () => {
-  updateCalendar();
-});
+  nextBtn.addEventListener('click', () => {
+    currentMonth++;
+    if (currentMonth >= months.length) {
+      currentMonth = 0;
+    }
+    updateCalendar();
+  });
 
-updateCalendar();
 </script>
-
-
-</body>
-  </div>
-
-  <script>
-    function showDaily() {
-      document.getElementById("daily").style.display = "block";
-      document.getElementById("weekly").style.display = "none";
-      document.getElementById("monthly").style.display = "none";
-    }
-
-    function showWeekly() {
-      document.getElementById("daily").style.display = "none";
-      document.getElementById("weekly").style.display = "block";
-      document.getElementById("monthly").style.display = "none";
-    }
-
-    function showMonthly() {
-      document.getElementById("daily").style.display = "none";
-      document.getElementById("weekly").style.display = "none";
-      document.getElementById("monthly").style.display = "block";
-    }
-  </script>
   
   <script>
 	const todoList = document.getElementById('todo-list');
