@@ -114,36 +114,14 @@
 	<div id="popup" style="display: none;">
   Class Successfully Created
 </div>
-
 <script>
-  // Get the form and submit button
-  const form = document.querySelector('form');
-  const submitButton = document.querySelector('input[type="submit"]');
-
-  // Handle form submission
-  form.addEventListener('submit', (event) => {
-    event.preventDefault(); // Prevent form from submitting normally
-
-    // Show popup
-    const popup = document.getElementById('popup');
-    popup.style.display = 'block';
-    document.body.appendChild(popup);
-
-    // Wait 1.5 seconds and redirect to CalendarSplit.html
-    setTimeout(() => {
-      window.location.href = 'CalendarSplit.html';
-    }, 1500);
-  });
-
-  // Handle popup close
-  document.addEventListener('click', (event) => {
-    const popup = document.getElementById('popup');
-    if (event.target === popup) {
-      popup.style.display = 'none';
-    }
-  });
-</script>
-
-
+        document.querySelector('form').addEventListener('submit', (event) => {
+            event.preventDefault();
+            alert("Event Successfully Created");
+            setTimeout(() => {
+                window.location.href = "CalendarSplit.html";
+            }, 1500); // wait for 2 seconds before redirecting
+        });
+    </script>
 </body>
 </html>
