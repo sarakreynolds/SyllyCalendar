@@ -1510,6 +1510,8 @@ function showDaily() {
   nextBtn.style.display = 'none';
   // hide the monthly view
   document.getElementById("monthly").style.display = "none";
+  // reset currentMonth to the current month
+  currentMonth = new Date().getMonth();
 }
 
 function showWeekly() {
@@ -1520,6 +1522,8 @@ function showWeekly() {
   nextBtn.style.display = 'none';
   // hide the monthly view
   document.getElementById("monthly").style.display = "none";
+  // reset currentMonth to the current month
+  currentMonth = new Date().getMonth();
 }
 
 function showMonthly() {
