@@ -1511,6 +1511,10 @@ function showDaily() {
   nextBtn.style.display = 'none';
   // explicitly hide the monthly view
   document.getElementById("monthly").style.display = "none";
+for (let i = 0; i < months.length; i++) {
+    const month = document.getElementById(months[i]);
+    month.style.display = 'none';
+  }
 }
 
 function showWeekly() {
@@ -1521,6 +1525,10 @@ function showWeekly() {
   nextBtn.style.display = 'none';
   // explicitly hide the monthly view
   document.getElementById("monthly").style.display = "none";
+for (let i = 0; i < months.length; i++) {
+    const month = document.getElementById(months[i]);
+    month.style.display = 'none';
+  }
 }
 
 function showMonthly() {
