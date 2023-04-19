@@ -1573,13 +1573,16 @@ button {
   // calculate Sunday of the current week
   const sunday = new Date(today.getFullYear(), today.getMonth(), today.getDate() - today.getDay());
 
-  // format date string
-  const options = { weekday: 'long', month: 'long', day: 'numeric' };
-  const dateString = sunday.toLocaleDateString('en-US', options);
+  // format date string for the current week
+  const options = { month: 'long', day: 'numeric' };
+  const sundayString = sunday.toLocaleDateString('en-US', options);
+  const saturday = new Date(today.getFullYear(), today.getMonth(), today.getDate() + (6 - today.getDay()));
+  const saturdayString = saturday.toLocaleDateString('en-US', options);
+  const currentWeekString = sundayString + ' - ' + saturdayString;
 
-  // set date header
+  // set current week header
   const currentWeekHeader = document.getElementById('currentWeek');
-  currentWeekHeader.textContent = "The Week of " + dateString;
+  currentWeekHeader.textContent = currentWeekString;
 </script>
 	  
   <script>
