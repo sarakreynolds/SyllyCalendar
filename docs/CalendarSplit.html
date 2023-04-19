@@ -87,6 +87,9 @@ body {
 		font-size: 13px;
 		line-height: 1.5;
 	}
+	.class-info {
+  		display: none;
+	}
 </style>
 </head>
 <body>
@@ -97,15 +100,31 @@ body {
 		<a href="UploadEvent.html"><button>Add New Event</button></a>
 	</div>
 	<div class="classes">
-		<h2>Classes</h2>
-		<ul>
-			<li>Comp 251</li>
-			<li>Comp 375</li>
-			<li>Comp 485</li>
-			<li>Math 250</li>
-			<li>English 102</li>
-		</ul>
-	</div>
+  <h2>Classes</h2>
+  <ul>
+    <li>
+      <input type="checkbox" id="comp251" onchange="toggleClass('comp251')" checked>
+      <label for="comp251">Comp 251</label>
+    </li>
+    <li>
+      <input type="checkbox" id="comp375" onchange="toggleClass('comp375')" checked>
+      <label for="comp375">Comp 375</label>
+    </li>
+    <li>
+      <input type="checkbox" id="comp485" onchange="toggleClass('comp485')" checked>
+      <label for="comp485">Comp 485</label>
+    </li>
+    <li>
+      <input type="checkbox" id="math250" onchange="toggleClass('math250')" checked>
+      <label for="math250">Math 250</label>
+    </li>
+    <li>
+      <input type="checkbox" id="eng102" onchange="toggleClass('eng102')" checked>
+      <label for="eng102">English 102</label>
+    </li>
+  </ul>
+</div>
+	
 	<div class="todo">
 	<h2>To-Do List</h2>
 	<ul id="todo-list">
@@ -1549,6 +1568,18 @@ button {
 			}
 		});
 	}
+	  
+	  //script for classes selection
+function toggleClass(className) {
+  const classInfo = document.querySelector(`.${className}-info`);
+  const checkbox = document.getElementById(className);
+
+  if (checkbox.checked) {
+    classInfo.style.display = 'block';
+  } else {
+    classInfo.style.display = 'none';
+  }
+}
 </script>
 </body>
 </html>
