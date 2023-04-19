@@ -1524,10 +1524,8 @@ function showWeekly() {
 }
 
 function showMonthly() {
-  if (currentMonth === null) {
-    currentMonth = new Date().getMonth();
-    updateCalendar();
-  }
+  currentMonth = new Date().getMonth();
+  updateCalendar();
   document.getElementById("daily").style.display = "none";
   document.getElementById("weekly").style.display = "none";
   document.getElementById("monthly").style.display = "block";
