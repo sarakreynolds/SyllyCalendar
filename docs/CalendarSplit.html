@@ -1611,13 +1611,18 @@ function createCheckboxListener(checkbox) {
   };
 }
 
+// Function to add event listener to a checkbox
+function addCheckboxListener(checkbox) {
+  checkbox.addEventListener('click', checkbox.clickHandler);
+  checkbox.clickHandler = createCheckboxListener(checkbox);
+}
+
 // Function to add event listeners to all checkboxes in the todo list
 function addCheckboxListeners() {
   const checkboxes = document.getElementsByName('todo-item');
   for (let i = 0; i < checkboxes.length; i++) {
     const checkbox = checkboxes[i];
-    checkbox.addEventListener('click', checkbox.clickHandler);
-    checkbox.clickHandler = createCheckboxListener(checkbox);
+    addCheckboxListener(checkbox);
   }
 }
 
@@ -1636,8 +1641,7 @@ addButton.addEventListener('click', function() {
   newItemInput.value = '';
 
   // Add event listener to the new checkbox
-  newCheckbox.addEventListener('click', newCheckbox.clickHandler);
-  newCheckbox.clickHandler = createCheckboxListener(newCheckbox);
+  addCheckboxListener(newCheckbox);
 
   // Add event listeners to all checkboxes in the todo list
   addCheckboxListeners();
