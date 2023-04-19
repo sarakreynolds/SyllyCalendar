@@ -1573,6 +1573,7 @@ button {
   const sundayFormatted = sunday.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
   // Set the week title as "The Week of Month Day, Year"
   document.getElementById("currentWeek").innerHTML = "The Week of " + sundayFormatted;
+currentWeekHeader.textContent = sundayFormatted;
 </script>
 	  
   <script>
