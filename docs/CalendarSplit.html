@@ -553,16 +553,18 @@ button {
     </tr>
   </table>
 </div>
-
-  <!-- monthly view calendar -->
-	   <div id="monthly" style="text-align: center; display:none"></div>
+	   
+	   
+<!-- monthly view calendar --> 
+<div id="monthly" style="text-align: center; display:none"></div>
+  <caption>
+    <button id="prev-btn" style="display: none;">Prev</button>
+    <span></span>
+    <button id="next-btn" style="display: none;">Next</button>
+  </caption>
     <body>
 	<div id="calendar-container"></div>
 	<center>
-	<button id="prev-btn">Previous</button>
-	<button id="next-btn">Next</button>
-	
-
 	   <table id="January">
             <caption>January 2023</caption>
             <thead>
@@ -1451,7 +1453,7 @@ button {
 	   </body>
 	  </div>
 <script>
-  let currentMonth = -1;
+  let currentMonth = 0;
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   const prevBtn = document.getElementById('prev-btn');
   const nextBtn = document.getElementById('next-btn');
@@ -1468,52 +1470,30 @@ button {
       }
     }
 
-    // update the caption to show the current month and year
-    const date = new Date();
-    date.setMonth(currentMonth);
-    caption.textContent = date.toLocaleString('default', { month: 'long', year: 'numeric' });
-
-    // show/hide prev and next buttons based on current view
-    if (document.getElementById("monthly").style.display !== "none") {
+    // show prev and next buttons if on monthly view
+    if (currentMonth >= 0) {
       prevBtn.style.display = 'inline-block';
       nextBtn.style.display = 'inline-block';
     } else {
       prevBtn.style.display = 'none';
       nextBtn.style.display = 'none';
     }
+
+    // update the caption to show the current month and year
+    const date = new Date();
+    date.setMonth(currentMonth);
+    caption.textContent = date.toLocaleString('default', { month: 'long', year: 'numeric' });
   }
-
-  // hide all months on page load
-  for (let i = 0; i < months.length; i++) {
-    const month = document.getElementById(months[i]);
-    month.style.display = 'none';
-  }
-
-  prevBtn.addEventListener('click', () => {
-    currentMonth--;
-    if (currentMonth < 0) {
-      currentMonth = months.length - 1;
-    }
-    updateCalendar();
-  });
-
-  nextBtn.addEventListener('click', () => {
-    currentMonth++;
-    if (currentMonth >= months.length) {
-      currentMonth = 0;
-    }
-    updateCalendar();
-  });
 
   function showDaily() {
-    document.getElementById("daily").style.display = "block";
+    document.getElementById("daily").style.display = "table";
     document.getElementById("weekly").style.display = "none";
     document.getElementById("monthly").style.display = "none";
   }
 
   function showWeekly() {
     document.getElementById("daily").style.display = "none";
-    document.getElementById("weekly").style.display = "block";
+    document.getElementById("weekly").style.display = "table";
     document.getElementById("monthly").style.display = "none";
   }
 
@@ -1524,7 +1504,13 @@ button {
 
     document.getElementById("daily").style.display = "none";
     document.getElementById("weekly").style.display = "none";
-    document.getElementById("monthly").style.display = "block";
+    document.getElementById("monthly").style.display = "table";
+  }
+
+  // hide all months
+  for (let i = 0; i < months.length; i++) {
+    const month = document.getElementById(months[i]);
+    month.style.display = 'none';
   }
 
   prevBtn.addEventListener('click', () => {
