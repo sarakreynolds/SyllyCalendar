@@ -1594,35 +1594,16 @@ const todoList = document.getElementById('todo-list');
 const newItemInput = document.getElementById('new-item');
 const addButton = document.getElementById('add-button');
 
-// Function to create an event listener for a checkbox
-function createCheckboxListener(checkbox) {
-  return function() {
-    if (checkbox.checked) {
-      // Display a confirmation dialog box
-      const confirmation = confirm(`Confirm completion of ${checkbox.value}`);
-      if (confirmation) {
-        // Remove the corresponding todo item from the list
-        checkbox.parentNode.remove();
-      } else {
-        // Uncheck the checkbox
-        checkbox.checked = false;
-      }
+// Function to handle checkbox click events
+function handleCheckboxClick(event) {
+  const checkbox = event.target;
+  if (checkbox.checked) {
+    const confirmation = confirm(`Confirm completion of ${checkbox.value}`);
+    if (confirmation) {
+      checkbox.parentNode.remove();
+    } else {
+      checkbox.checked = false;
     }
-  };
-}
-
-// Function to add event listener to a checkbox
-function addCheckboxListener(checkbox) {
-  checkbox.addEventListener('click', checkbox.clickHandler);
-  checkbox.clickHandler = createCheckboxListener(checkbox);
-}
-
-// Function to add event listeners to all checkboxes in the todo list
-function addCheckboxListeners() {
-  const checkboxes = document.getElementsByName('todo-item');
-  for (let i = 0; i < checkboxes.length; i++) {
-    const checkbox = checkboxes[i];
-    addCheckboxListener(checkbox);
   }
 }
 
@@ -1636,19 +1617,17 @@ addButton.addEventListener('click', function() {
   newCheckbox.type = 'checkbox';
   newCheckbox.name = 'todo-item';
   newCheckbox.value = newItemInput.value;
+  newCheckbox.addEventListener('click', handleCheckboxClick);
   newItem.insertBefore(newCheckbox, newItem.firstChild);
   todoList.appendChild(newItem);
   newItemInput.value = '';
-
-  // Add event listener to the new checkbox
-  addCheckboxListener(newCheckbox);
-
-  // Add event listeners to all checkboxes in the todo list
-  addCheckboxListeners();
 });
 
-// Add event listeners to all checkboxes in the todo list when the page is first loaded
-addCheckboxListeners();
+// Add event listeners to all checkboxes in the todo list
+const checkboxes = document.getElementsByName('todo-item');
+for (let i = 0; i < checkboxes.length; i++) {
+  checkboxes[i].addEventListener('click', handleCheckboxClick);
+}
 	  
 	  //script for classes selection
 function toggleClass(className) {
