@@ -1567,26 +1567,19 @@ button {
 </script>
 	  
 <script>
-// get current date
-const today = new Date();
+  // get current date
+  const today = new Date();
 
-// get the current day of the week (0 = Sunday, 1 = Monday, etc.)
-const currentDayOfWeek = today.getDay();
+  // calculate Sunday of the current week
+  const sunday = new Date(today.getFullYear(), today.getMonth(), today.getDate() - today.getDay());
 
-// calculate the date of the Sunday of the current week
-const sundayDate = new Date(today);
-sundayDate.setDate(today.getDate() - currentDayOfWeek);
+  // format date string
+  const options = { weekday: 'long', month: 'long', day: 'numeric' };
+  const dateString = sunday.toLocaleDateString('en-US', options);
 
-// format date string
-const options = { weekday: 'long', month: 'long', day: 'numeric' };
-const dateString = sundayDate.toLocaleDateString('en-US', options);
-
-// set date header
-const currentWeekHeader = document.getElementById('currentWeek');
-currentWeekHeader.textContent = 'The Week of ' + dateString;
-// Show the current week header
-  currentWeekHeader.style.display = 'block';
-	
+  // set date header
+  const currentWeekHeader = document.getElementById('currentWeek');
+  currentWeekHeader.textContent = "The Week of " + dateString;
 </script>
 	  
   <script>
