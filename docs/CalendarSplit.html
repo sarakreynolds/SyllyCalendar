@@ -1484,10 +1484,10 @@ button {
         month.style.display = 'none';
       }
     }
-	//reset caption before updating
-    caption.textContent = '';
+
     // update the caption to show the current month and year
-    const date = new Date(2023, currentMonth, 1);
+    const date = new Date();
+    date.setMonth(currentMonth);
     caption.textContent = date.toLocaleString('default', { month: 'long', year: 'numeric' });
   }
 
@@ -1512,6 +1512,8 @@ button {
     }
     updateCalendar();
   });
+
+  updateCalendar();
 </script>
 
 
