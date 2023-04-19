@@ -317,7 +317,7 @@ button {
 
 <!-- weekly view calendar -->
 <div id="weekly" style="text-align: center; display:none">
-  <h2 id="currentWeek"></h2>
+  	<h2 id="currentWeek"></h2>
   <table>
     <tr>
       <th></th>
@@ -1568,9 +1568,7 @@ function showMonthly() {
   // set date header
   const currentDateHeader = document.getElementById('currentDate');
   currentDateHeader.textContent = dateString;
-</script>
-	  
-<script>
+
   // get current date
   const today = new Date();
 
@@ -1587,9 +1585,7 @@ function showMonthly() {
   // set current week header
   const currentWeekHeader = document.getElementById('currentWeek');
   currentWeekHeader.textContent = currentWeekString;
-</script>
-	  
-  <script>
+
 const todoList = document.getElementById('todo-list');
 const newItemInput = document.getElementById('new-item');
 const addButton = document.getElementById('add-button');
