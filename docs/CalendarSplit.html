@@ -1502,32 +1502,33 @@ button {
     date.setMonth(currentMonth);
     caption.textContent = date.toLocaleString('default', { month: 'long', year: 'numeric' });
   }
+function showDaily() {
+  document.getElementById("daily").style.display = "block";
+  document.getElementById("weekly").style.display = "none";
+  document.getElementById("monthly").style.display = "none";
+  prevBtn.style.display = 'none';
+  nextBtn.style.display = 'none';
+  // hide the monthly view
+  document.getElementById("monthly").style.display = "none";
+}
 
-  function showDaily() {
-    document.getElementById("daily").style.display = "block";
-    document.getElementById("weekly").style.display = "none";
-    document.getElementById("monthly").style.display = "none";
-      prevBtn.style.display = 'none';
-      nextBtn.style.display = 'none';
-  }
+function showWeekly() {
+  document.getElementById("daily").style.display = "none";
+  document.getElementById("weekly").style.display = "block";
+  document.getElementById("monthly").style.display = "none";
+  prevBtn.style.display = 'none';
+  nextBtn.style.display = 'none';
+  // hide the monthly view
+  document.getElementById("monthly").style.display = "none";
+}
 
-  function showWeekly() {
-    document.getElementById("daily").style.display = "none";
-    document.getElementById("weekly").style.display = "block";
-    document.getElementById("monthly").style.display = "none";
-      prevBtn.style.display = 'none';
-      nextBtn.style.display = 'none';
-  }
-
-  function showMonthly() {
-    // show the current month and hide all other months
-    currentMonth = new Date().getMonth();
-    updateCalendar();
-
-    document.getElementById("daily").style.display = "none";
-    document.getElementById("weekly").style.display = "none";
-    document.getElementById("monthly").style.display = "block";
-  }
+function showMonthly() {
+  currentMonth = new Date().getMonth();
+  updateCalendar();
+  document.getElementById("daily").style.display = "none";
+  document.getElementById("weekly").style.display = "none";
+  document.getElementById("monthly").style.display = "block";
+}
 
   // hide all months
   for (let i = 0; i < months.length; i++) {
