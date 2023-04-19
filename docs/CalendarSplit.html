@@ -1474,10 +1474,32 @@ button {
     caption.textContent = date.toLocaleString('default', { month: 'long', year: 'numeric' });
   }
 
-  // hide all months on page load
-  for (let i = 1; i < months.length; i++) {
+  // hide all months
+  for (let i = 0; i < months.length; i++) {
     const month = document.getElementById(months[i]);
     month.style.display = 'none';
+  }
+
+  function showDaily() {
+    document.getElementById("daily").style.display = "block";
+    document.getElementById("weekly").style.display = "none";
+    document.getElementById("monthly").style.display = "none";
+  }
+
+  function showWeekly() {
+    document.getElementById("daily").style.display = "none";
+    document.getElementById("weekly").style.display = "block";
+    document.getElementById("monthly").style.display = "none";
+  }
+
+  function showMonthly() {
+    // show the current month and hide all other months
+    currentMonth = new Date().getMonth();
+    updateCalendar();
+
+    document.getElementById("daily").style.display = "none";
+    document.getElementById("weekly").style.display = "none";
+    document.getElementById("monthly").style.display = "block";
   }
 
   prevBtn.addEventListener('click', () => {
@@ -1497,25 +1519,6 @@ button {
   });
 
 </script>
-    <script>
-    function showDaily() {
-      document.getElementById("daily").style.display = "block";
-      document.getElementById("weekly").style.display = "none";
-      document.getElementById("monthly").style.display = "none";
-    }
-
-    function showWeekly() {
-      document.getElementById("daily").style.display = "none";
-      document.getElementById("weekly").style.display = "block";
-      document.getElementById("monthly").style.display = "none";
-    }
-
-    function showMonthly() {
-      document.getElementById("daily").style.display = "none";
-      document.getElementById("weekly").style.display = "none";
-      document.getElementById("monthly").style.display = "block";
-    }
-  </script>
   <script>
 	const todoList = document.getElementById('todo-list');
 	const newItemInput = document.getElementById('new-item');
