@@ -1621,6 +1621,9 @@ addButton.addEventListener('click', function() {
   newItem.insertBefore(newCheckbox, newItem.firstChild);
   todoList.appendChild(newItem);
   newItemInput.value = '';
+
+  // Attach event listener to the new checkbox
+  newCheckbox.addEventListener('click', handleCheckboxClick);
 });
 
 // Add event listeners to all checkboxes in the todo list
