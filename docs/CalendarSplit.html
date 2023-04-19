@@ -1502,6 +1502,7 @@ button {
     date.setMonth(currentMonth);
     caption.textContent = date.toLocaleString('default', { month: 'long', year: 'numeric' });
   }
+
 function showDaily() {
   document.getElementById("daily").style.display = "block";
   document.getElementById("weekly").style.display = "none";
@@ -1510,8 +1511,8 @@ function showDaily() {
   nextBtn.style.display = 'none';
   // hide the monthly view
   document.getElementById("monthly").style.display = "none";
-  // reset currentMonth to the current month
-  currentMonth = new Date().getMonth();
+  // reset currentMonth to null
+  currentMonth = null;
 }
 
 function showWeekly() {
@@ -1522,13 +1523,15 @@ function showWeekly() {
   nextBtn.style.display = 'none';
   // hide the monthly view
   document.getElementById("monthly").style.display = "none";
-  // reset currentMonth to the current month
-  currentMonth = new Date().getMonth();
+  // reset currentMonth to null
+  currentMonth = null;
 }
 
 function showMonthly() {
-  currentMonth = new Date().getMonth();
-  updateCalendar();
+  if (currentMonth === null) {
+    currentMonth = new Date().getMonth();
+    updateCalendar();
+  }
   document.getElementById("daily").style.display = "none";
   document.getElementById("weekly").style.display = "none";
   document.getElementById("monthly").style.display = "block";
