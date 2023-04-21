@@ -106,6 +106,11 @@ body {
 			object-fit: contain;
 			border: 2px solid black;
 		}
+	.left-align {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
 </style>
 </head>
 <body>
@@ -118,31 +123,34 @@ body {
 	<div class="center2">
 		<a href="UploadEvent.html"><button>Add New Event</button></a>
 	</div>
+	
+	<div class="left-align">
+	<!-- These elements will be left-aligned -->
 	<div class="classes">
-  <h2>Classes</h2>
-  <ul>
-    <li>
-      <input type="checkbox" id="comp251" onchange="toggleClass('comp251')" checked>
-      <label for="comp251">Comp 251</label>
-    </li>
-    <li>
-      <input type="checkbox" id="comp375" onchange="toggleClass('comp375')" checked>
-      <label for="comp375">Comp 375</label>
-    </li>
-    <li>
-      <input type="checkbox" id="comp485" onchange="toggleClass('comp485')" checked>
-      <label for="comp485">Comp 485</label>
-    </li>
-    <li>
-      <input type="checkbox" id="math250" onchange="toggleClass('math250')" checked>
-      <label for="math250">Math 250</label>
-    </li>
-    <li>
-      <input type="checkbox" id="eng102" onchange="toggleClass('eng102')" checked>
-      <label for="eng102">English 102</label>
-    </li>
-  </ul>
-</div>
+  		<h2>Classes</h2>
+ 		 <ul>
+  		  <li>
+  		    <input type="checkbox" id="comp251" onchange="toggleClass('comp251')" checked>
+ 		     <label for="comp251">Comp 251</label>
+		    </li>
+		    <li>
+ 		     <input type="checkbox" id="comp375" onchange="toggleClass('comp375')" checked>
+ 		     <label for="comp375">Comp 375</label>
+ 		   </li>
+ 		   <li>
+  		    <input type="checkbox" id="comp485" onchange="toggleClass('comp485')" checked>
+  		    <label for="comp485">Comp 485</label>
+  		  </li>
+  		  <li>
+  		    <input type="checkbox" id="math250" onchange="toggleClass('math250')" checked>
+  		    <label for="math250">Math 250</label>
+ 		   </li>
+		    <li>
+    		  <input type="checkbox" id="eng102" onchange="toggleClass('eng102')" checked>
+    		  <label for="eng102">English 102</label>
+  		  </li>
+		  </ul>
+		</div>
 	
 	<div class="todo">
 	<h2>To-Do List</h2>
@@ -155,7 +163,8 @@ body {
 	</ul>
 	<input type="text" id="new-item" placeholder="Add new item">
 	<button id="add-button">Add</button>
-</div>
+	</div>
+	</div>
 </body>
   </div>
 </div>
