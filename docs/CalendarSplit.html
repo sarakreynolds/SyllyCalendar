@@ -45,7 +45,7 @@ body {
 
 .centered {
   position: absolute;
-  top: 50%;
+  top: 15%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -81,8 +81,8 @@ body {
 	}
 	.clases,
 	.todo {
-		margin-top: 5px;
-		margin-left: auto;
+		top: 50%;
+		margin-left: 15px;
 		margin-right: auto;
 		width: 80%;
 		font-family: Arial, sans-serif;
@@ -110,6 +110,8 @@ body {
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
+		position: absolute;
+  		top: 30%;
 	}
 </style>
 </head>
@@ -126,7 +128,7 @@ body {
 	  </div>
 	<div class="left-align">
 	<!-- These elements will be left-aligned -->
-	<div class="classes">
+	<div class="classes" style="margin-left: 15px;">
   		<h2>Classes</h2>
  		 <ul>
   		  <li>
